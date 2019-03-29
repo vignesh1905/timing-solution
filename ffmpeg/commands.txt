@@ -1,2 +1,17 @@
-ffmpeg -framerate 30 -pattern_type glob -i '*.jpg' \
+# Using advanced options
+$ ffmpeg -framerate 30 -pattern_type glob -i '*.jpg' \
   -c:v libx264 -pix_fmt yuv420p out.mp4
+
+#Simple one
+$ ffmpeg -framerate 30 -pattern_type glob -i '*.jpg' out_3.mp4
+
+
+#Drawback with above one is that it does not take the order of the files
+so creates a flicker in the output video, to overcome that create create a list
+of the images in order using
+
+$ ls /path/to/*.jpg | sort -V | xargs -I {} echo "file '{}'" > list.txt
+
+
+#Now use ffpmeg concat option to stitch back the video
+$ ffmpeg -f concat -i list.txt -c:v libx264 -r 30 -pix_fmt yuv420p out_4.mp4
