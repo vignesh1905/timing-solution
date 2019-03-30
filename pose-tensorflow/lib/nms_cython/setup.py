@@ -14,10 +14,10 @@ extensions = [
     'nms_grid', ['nms_grid.pyx'],
     language="c++",
     include_dirs=[np.get_include(), '.','include'],
-    extra_compile_args=['-DILOUSESTL','-DIL_STD','-std=c++11','-O3'],
-    extra_link_args=['-std=c++11']
+    extra_compile_args=['-DILOUSESTL','-DIL_STD','-std=c++11','-O3','-stdlib=libc++', '-mmacosx-version-min=10.9','-v'],
+    extra_link_args=['-std=c++11','-stdlib=libc++', '-mmacosx-version-min=10.9']
   )
-] 
+]
 
 setup(
     name = 'nms_grid',

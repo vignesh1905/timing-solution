@@ -1,10 +1,11 @@
 #pragma once
 
 #include <andres/marray.hxx>
+#include <array>
 
 // ILP is currently solving only pure multicut (not lifted and without class labels)
 enum class SolvingMethod
-{ 
+{
     Simple,
     Joint
 #ifdef WITH_GUROBI
@@ -24,3 +25,4 @@ andres::Marray<size_t> solve_nl_lmp_sparse_graph(andres::View<double> const& una
 
 
 double compute_objective(andres::View<double> const& unaries, andres::View<uint16_t> const& edges, andres::View<double> const& probabilities, andres::View<size_t> const& solution, bool do_logit_transform);
+Ω

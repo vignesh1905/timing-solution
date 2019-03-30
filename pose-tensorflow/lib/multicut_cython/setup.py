@@ -14,10 +14,10 @@ extensions = [
     'multicut', ['multicut.pyx', 'src/nl-lmp.cxx'],
     language="c++",
     include_dirs=[np.get_include(), '.', 'include', 'src'],
-    extra_compile_args=['-std=c++11','-O3', '-DHAVE_CPP11_INITIALIZER_LISTS'],
-    extra_link_args=['-std=c++11', '-L./']
+    extra_compile_args=['-std=c++11','-O3','-stdlib=libc++', '-mmacosx-version-min=10.9', '-DHAVE_CPP11_INITIALIZER_LISTS','-v'],
+    extra_link_args=['-std=c++11', '-L./','-stdlib=libc++', '-mmacosx-version-min=10.9']
   )
-] 
+]
 
 setup(
     name = 'multicut',

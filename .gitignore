@@ -1,2 +1,4 @@
 videos/
 pose-tensorflow/models/mpii/mpii-single-resnet-101.data-00000-of-00001
+*.mp4
+pose-tensorflow/models/coco/coco-resnet-101.data-00000-of-00001
